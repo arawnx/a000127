@@ -27,13 +27,21 @@ For example, let's assume `n=32`:
 ---
 
 ```python
-def δΣ_λ(a: int, i: int,*, carry = [1]*100) -> list[int]:
+def δΣ_λ(a: int, i: int, *, carry = [1]*100) -> list[int]:
  if a == 0:
   return carry
  else:
   return δΣ_λ(a-1,i,carry=δΣ(i,carry))
 ```
 This is a recursive function. Effectively, its whole purpose is to compute `δΣ(a,v)` repeatedly and return the result. 
+
+Before explaining the function cases, note that the function signature:
+
+```python
+def δΣ_λ(a: int, i: int, *, carry = [1]*100) -> list[int]
+```
+
+... uses the special argument `*`. This just requires that all arguments after it be named fully in function calls. So, to change carry, you would have to run e.g. `δΣ_λ(a=a,i=i,carry=[1,2,3,4,5])`.
 
 ```python
 if a == 0:
