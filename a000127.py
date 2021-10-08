@@ -1,12 +1,12 @@
 from math import log2
 
-def δΣ(a: int, v: list[int]) -> list[int]:
+def δΣ(a: int, Δ: list[int]) -> list[int]:
  res=[a]
- for ri,vi in zip(res,v):
+ for ri,vi in zip(res,Δ):
   res.append(ri+vi)
  return res
 
-def δΣ_λ(a: int, i: int,*, carry = [1]*10**5) -> list[int]:
+def δΣ_λ(a: int, i: int, *, carry = [1]*100) -> list[int]:
  if a == 0:
   return carry
  else:
